@@ -1,0 +1,16 @@
+service: todo-list-api
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  graphql:
+    handler: server.handler
+    events:
+      - http:
+          path: graphql
+          method: POST
+          cors: true
